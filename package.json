@@ -1,0 +1,23 @@
+{
+  "name": "music-js",
+  "version": "0.0.1",
+  "description": "music-js is a library that is used to play music in the browser",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts"
+  },
+  "keywords": [
+    "music-js",
+    "music.js",
+    "background music",
+    "song-js"
+  ],
+  "author": "Eversoft",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "tsup": "^8.0.2"
+  }
+}
