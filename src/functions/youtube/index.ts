@@ -1,1 +1,2 @@
-export * from './init'
+export * from "./init";
+export * from "./getIdByUrl";
