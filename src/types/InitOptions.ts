@@ -1,11 +1,10 @@
+import { Method } from "./Method";
+import { UIElements } from "./UIElements";
+
 export interface InitOptions {
-  method: "youtube" | "file";
+  method: Method;
   src: string[] | string;
-  elements?: {
-    playPauseButton: HTMLElement;
-    prevButton: HTMLElement;
-    nextButton: HTMLElement;
-  };
+  elements?: UIElements;
   randomize?: boolean;
   volume?: number;
 }
