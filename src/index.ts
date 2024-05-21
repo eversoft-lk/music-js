@@ -36,6 +36,13 @@ export default class MusicJS {
           "Starting to play song. It will take some time to buffer video before it starts playing."
         );
       });
+
+      // Play next song when current song ends
+      this.YTPlayer.on("stateChange", (event) => {
+        if (event.data === 0) {
+          this.next();
+        }
+      });
     }
   }
 
@@ -53,5 +60,39 @@ export default class MusicJS {
 
     // if type is file add path directly
     this.songs = songs;
+  }
+
+  static PlayOrPause(): void {
+    if (this.YTPlayer) {
+      this.YTPlayer.getPlayerState().then((state) => {
+        if (state === 1) {
+          this.YTPlayer?.pauseVideo();
+        } else {
+          this.YTPlayer?.playVideo();
+        }
+      });
+    }
+  }
+
+  static next(): void {
+    if (this.currentSongIndex + 1 < this.songs.length) {
+      this.currentSongIndex += 1;
+    } else {
+      this.currentSongIndex = 0;
+    }
+
+    this.YTPlayer?.loadVideoById(this.songs[this.currentSongIndex]);
+    this.YTPlayer?.playVideo();
+  }
+
+  static prev(): void {
+    if (this.currentSongIndex - 1 >= 0) {
+      this.currentSongIndex -= 1;
+    } else {
+      this.currentSongIndex = this.songs.length - 1;
+    }
+
+    this.YTPlayer?.loadVideoById(this.songs[this.currentSongIndex]);
+    this.YTPlayer?.playVideo();
   }
 }
