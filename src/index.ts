@@ -36,6 +36,13 @@ export default class MusicJS {
           "Starting to play song. It will take some time to buffer video before it starts playing."
         );
       });
+
+      // Play next song when current song ends
+      this.YTPlayer.on("stateChange", (event) => {
+        if (event.data === 0) {
+          this.next();
+        }
+      });
     }
   }
 
