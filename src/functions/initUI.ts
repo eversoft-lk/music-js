@@ -21,42 +21,30 @@ export function initUI(elements: UIElements | undefined): void {
     `;
     document.body.appendChild(container);
 
-    // Get the elements
-    const playPauseButton = document.getElementById("play-pause-button");
-    const nextButton = document.getElementById("next-button");
-    const prevButton = document.getElementById("prev-button");
-
-    if (
-      playPauseButton === null ||
-      nextButton === null ||
-      prevButton === null
-    ) {
-      console.error("Elements not found");
-      return;
-    }
-
     // Set the elements
     elements = {
-      playPauseButton,
-      nextButton,
-      prevButton,
+      playPauseButton: "#play-pause-button",
+      nextButton: "#next-button",
+      prevButton: "#prev-button",
     };
   }
 
   /* 
       Call controller functions from given Elements...  
   */
-  elements.playPauseButton.addEventListener("click", () => {
-    // Play or Pause the music
-    MusicJS.PlayOrPause();
-  });
+  document
+    .querySelector(elements.playPauseButton)
+    ?.addEventListener("click", () => {
+      // Play or Pause the music
+      MusicJS.PlayOrPause();
+    });
 
-  elements.nextButton.addEventListener("click", () => {
+  document.querySelector(elements.nextButton)?.addEventListener("click", () => {
     // Play next song
     MusicJS.next();
   });
 
-  elements.prevButton.addEventListener("click", () => {
+  document.querySelector(elements.prevButton)?.addEventListener("click", () => {
     // Play previous song
     MusicJS.prev();
   });

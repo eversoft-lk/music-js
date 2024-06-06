@@ -1,5 +1,5 @@
 export interface UIElements {
-    playPauseButton: HTMLElement;
-    prevButton: HTMLElement;
-    nextButton: HTMLElement;
+    playPauseButton: string;
+    prevButton: string;
+    nextButton: string;
 };
