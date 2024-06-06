@@ -143,7 +143,7 @@ import MusicJS from "music-js";
 
 MusicJS.init({
   method: "file",
-  src: ["/bass_boosted_1.mp3", "/bass_boosted_2.mp3"],
+  src: ["/song_file1.mp3", "/song_file2.mp3"],
   elements: {
     nextButton: ".music-js-next",
     prevButton: ".music-js-prev",
