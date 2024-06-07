@@ -33,7 +33,7 @@ Music-JS is a lightweight library that simplifies adding background music to you
 To install Music-JS, use npm:
 
 ```
-npm install music-js
+npm install @eversoft-lk/music-js
 ``` 
 
 *Note: CDN support is not available yet.*
@@ -47,7 +47,7 @@ After installing the package, you can import and initialize the library in your 
 First, you need to import MusicJS:
 
 ```
-import MusicJS from "music-js";
+import MusicJS from "@eversoft-lk/music-js";
 ```
 
 ### Initializing the Library
@@ -62,7 +62,7 @@ To initialize the library, use the `MusicJS.init()` function. This function take
 If you are using audio files as your source, set the method to `"file"` and provide the path(s) to the audio file(s) in the **src** key.
 
 ```
-import MusicJS from "music-js";
+import MusicJS from "@eversoft-lk/music-js";
 
 // Example with multiple audio files
 MusicJS.init({
@@ -82,7 +82,7 @@ MusicJS.init({
 If you are using YouTube videos as your source, set the method to `"youtube"` and provide the YouTube video link(s) in the **src** key.
 
 ```
-import MusicJS from "music-js";
+import MusicJS from "@eversoft-lk/music-js";
 
 // Example with multiple YouTube videos
 MusicJS.init({
@@ -111,7 +111,7 @@ The `MusicJS.init()` function also accepts optional parameters for further custo
 #### Example 3: Randomizing Playback
 
 ```
-import MusicJS from "music-js";
+import MusicJS from "@eversoft-lk/music-js";
 
 MusicJS.init({
   method: "file",
@@ -123,7 +123,7 @@ MusicJS.init({
 #### Example 4: Adjusting Volume
 
 ```
-import MusicJS from "music-js";
+import MusicJS from "@eversoft-lk/music-js";
 
 MusicJS.init({
   method: "file",
@@ -139,7 +139,7 @@ You can customize the default design of the music controller by passing custom c
 #### Example 5: Custom Controller Elements
 
 ```
-import MusicJS from "music-js";
+import MusicJS from "@eversoft-lk/music-js";
 
 MusicJS.init({
   method: "file",

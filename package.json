@@ -1,6 +1,6 @@
 {
-  "name": "music-js",
-  "version": "0.0.1",
+  "name": "@eversoft-lk/music-js",
+  "version": "1.0.0",
   "description": "music-js is a library that is used to play music in the browser",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -12,10 +12,15 @@
     "music-js",
     "music.js",
     "background music",
-    "song-js"
+    "song-js",
+    "tone-js"
   ],
   "author": "Eversoft",
   "license": "MIT",
+  "homepage": "https://www.eversoft.lk",
+  "repository": {
+    "url": "https://github.com/eversoft-lk/music-js"
+  },
   "devDependencies": {
     "@types/youtube-player": "^5.5.11",
     "tsup": "^8.0.2",
