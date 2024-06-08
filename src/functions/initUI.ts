@@ -6,6 +6,11 @@ export function initUI(elements: UIElements | undefined): void {
     /* 
         Add Design to control music...
     */
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css";
+    document.head.appendChild(link);
+
     const container = document.createElement("div");
     container.classList.add("song-controller-container");
     container.innerHTML = `
