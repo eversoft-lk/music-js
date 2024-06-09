@@ -11,7 +11,7 @@ export function init(): YouTubePlayerType {
   // Load CSS file for YouTube player
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = "https://eversoft.lk/assets/css/music-js.css";
+  link.href = "https://cdn.eversoft.lk/music-js/css/music-js.min.css";
   document.head.appendChild(link);
 
   // Initialize & return YouTube player API

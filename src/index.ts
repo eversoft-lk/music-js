@@ -30,6 +30,9 @@ export default class MusicJS {
         this.songs = shuffle<string>(this.songs);
       }
 
+      // Set volume if provided
+      this.setVolume(options.volume ?? 0.5);
+
       // Start playing first song
       this.YTPlayer.loadVideoById(this.songs[0]);
       this.YTPlayer.playVideo().then(() => {
@@ -55,6 +58,9 @@ export default class MusicJS {
     if (options.randomize) {
       this.songs = shuffle<string>(this.songs);
     }
+
+    // Set volume if provided
+    this.setVolume(options.volume ?? 0.5);
 
     // Start playing first song
     this.AudioPlayer.src = this.songs[0];
@@ -100,6 +106,13 @@ export default class MusicJS {
   }
 
   static PlayOrPause(): void {
+    // Get the play-pause button icon, if not customized
+    let icon = null;
+    let isCustomized = this.options?.elements !== undefined;
+    if (!isCustomized) {
+      icon = document.querySelector("#play-pause i");
+    }
+
     if (this.options?.method === "youtube") {
       if (!this.YTPlayer) {
         return;
@@ -107,8 +120,12 @@ export default class MusicJS {
       // Get current state of player and toggle it
       this.YTPlayer.getPlayerState().then((state) => {
         if (state === 1) {
+          icon?.classList.remove("bi-pause-fill");
+          icon?.classList.add("bi-play-fill");
           this.YTPlayer?.pauseVideo();
         } else {
+          icon?.classList.remove("bi-play-fill");
+          icon?.classList.add("bi-pause-fill");
           this.YTPlayer?.playVideo();
         }
       });
@@ -121,8 +138,12 @@ export default class MusicJS {
 
     // Play or pause the audio player
     if (this.AudioPlayer.paused) {
+      icon?.classList.remove("bi-play-fill");
+      icon?.classList.add("bi-pause-fill");
       this.AudioPlayer.play();
     } else {
+      icon?.classList.remove("bi-pause-fill");
+      icon?.classList.add("bi-play-fill");
       this.AudioPlayer.pause();
     }
   }
@@ -172,5 +193,38 @@ export default class MusicJS {
     this.AudioPlayer.pause();
     this.AudioPlayer.src = this.songs[this.currentSongIndex];
     this.AudioPlayer.play();
+  }
+
+  static setVolume(volume: number) {
+    // Set volume based on method
+    if (this.options?.method === "youtube") {
+      if (!this.YTPlayer) {
+        return;
+      }
+      this.YTPlayer.setVolume(volume * 100);
+      return;
+    }
+
+    if (!this.AudioPlayer) {
+      return;
+    }
+
+    this.AudioPlayer.volume = volume;
+  }
+
+  static async getVolume(): Promise<number> {
+    // Get volume based on method
+    if (this.options?.method === "youtube") {
+      if (!this.YTPlayer) {
+        return 0;
+      }
+      return await this.YTPlayer.getVolume() / 100;
+    }
+
+    if (!this.AudioPlayer) {
+      return 0;
+    }
+
+    return this.AudioPlayer.volume;
   }
 }
