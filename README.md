@@ -36,22 +36,7 @@ To install Music-JS, use npm:
 npm install @eversoft-lk/music-js
 ``` 
 
-### CDN
-
-You can also use Music-JS via CDN:
-
-- JavaScript CDN: [https://cdn.eversoft.lk/music-js/js/music-js.min.js](https://cdn.eversoft.lk/music-js/js/music-js.min.js)
-
-- CSS CDN: [https://cdn.eversoft.lk/music-js/css/music-js.min.css](https://cdn.eversoft.lk/music-js/css/music-js.min.css)
-
-Include the following lines in your HTML:
-
-```
-<link rel="stylesheet" href="https://cdn.eversoft.lk/music-js/css/music-js.min.css">
-<script defer src="https://cdn.eversoft.lk/music-js/js/music-js.min.js"></script>
-```
-
-*Note: Even if you install the package via npm, you should include the CSS CDN in your project to prevent delay of showing styles.*
+Note: CDN support is not available yet.
 
 ## Usage
 
